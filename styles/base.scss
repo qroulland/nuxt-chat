@@ -1,0 +1,27 @@
+html {
+  width: 100%;
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  background-color: var(--primary-50);
+  line-height: 1.25;
+
+  main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100svh;
+    width: 100%;
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: center;
+      width: 100%;
+      max-width: 1400px;
+    }
+  }
+}

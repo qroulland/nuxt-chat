@@ -1,0 +1,12 @@
+.card-message {
+  max-width: 50%;
+  width: fit-content;
+
+  @media screen and (min-width: 1200px) {
+    max-width: 40%;
+  }
+
+  p {
+    margin: 0;
+  }
+}
