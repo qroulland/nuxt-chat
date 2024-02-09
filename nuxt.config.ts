@@ -13,4 +13,9 @@ export default defineNuxtConfig({
     "primeicons/primeicons.css",
     "@/styles/main.scss",
   ],
+  app: {
+    head: {
+      title: "Nuxt Chat"
+    }
+  }
 });
