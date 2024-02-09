@@ -1,4 +1,4 @@
-import { messages, channels } from "@/server/models";
+import { channels } from "@/server/models";
 
 export default defineEventHandler(async (event) => {
   const id = event.context.params.id;
@@ -12,7 +12,6 @@ export default defineEventHandler(async (event) => {
       return {
         id: channelData._id,
         name: channelData.name,
-        users_connected: channelData.users_connected,
       };
     } else {
       event.res.statusCode = 404;

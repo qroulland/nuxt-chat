@@ -7,7 +7,6 @@ export default defineEventHandler(async (event) => {
     return channelsData.map((channel) => ({
       id: channel._id,
       name: channel.name,
-      users_connected: channel.users_connected,
     }));
   } catch (err) {
     event.res.statusCode = 500;

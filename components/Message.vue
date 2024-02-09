@@ -19,9 +19,9 @@
 const formated_date = computed(() => {
   const date = new Date(props.created_at);
 
-  return `${date.getHours()}h${date.getMinutes()} - ${date.toLocaleDateString(
-    "fr"
-  )}`;
+  return `${date.getHours() < 10 ? "0" : ""}${date.getHours()}h${
+    date.getMinutes() < 10 ? "0" : ""
+  }${date.getMinutes()} - ${date.toLocaleDateString("fr")}`;
 });
 
 const props = defineProps({

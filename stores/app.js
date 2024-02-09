@@ -5,8 +5,11 @@ export const useAppStore = defineStore("app", () => {
 
   const channel = ref(null);
 
+  const users_connected = ref(["Tommy", "Laureen", "Pam"]);
+
   return {
     channel,
     pseudo,
+    users_connected,
   };
 });

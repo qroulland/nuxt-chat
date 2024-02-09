@@ -18,13 +18,11 @@ export default defineEventHandler(async (event) => {
     } else {
       const newChannelData = await channels.create({
         name,
-        users_connected: [],
       });
 
       return {
         id: newChannelData._id,
         name: newChannelData.name,
-        users_connected: newChannelData.users_connected,
       };
     }
   } catch (err) {

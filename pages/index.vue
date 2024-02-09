@@ -6,20 +6,25 @@
       <InputText
         type="text"
         placeholder="Channel name"
-        v-model="data.channel_name"
+        v-model="state.channel_name"
       />
-      <Button :disabled="!data.channel_name" @click="createChannel(data.channel_name)">
+      <Button
+        :disabled="!state.channel_name"
+        @click="createChannel(state.channel_name)"
+      >
         Create my channel!
       </Button>
     </div>
-    <p v-if="data.error" v-text="data.error" />
-    <Divider />
-    <h3>Choose a channel</h3>
-    <div v-for="channel in data.channels" :key="channel.id">
-      <RouterLink :to="{ name: 'id', params: { id: channel.id } }">{{
-        channel.name
-      }}</RouterLink>
-    </div>
+    <p v-if="state.error" v-text="state.error" />
+    <template v-if="state.channels.length">
+      <Divider />
+      <h3>Choose a channel</h3>
+      <div v-for="channel in state.channels" :key="channel.id">
+        <RouterLink :to="{ name: 'id', params: { id: channel.id } }">{{
+          channel.name
+        }}</RouterLink>
+      </div>
+    </template>
   </div>
 </template>
 
@@ -33,14 +38,14 @@ const { channel, pseudo } = storeToRefs(appStore);
 
 const router = useRouter();
 
-const data = reactive({
+const state = reactive({
   user_name: null,
   channel_name: null,
   channels: [],
   error: null,
 });
 
-data.channels = await $fetch(`/api/channels`, {
+state.channels = await $fetch(`/api/channels`, {
   method: "GET",
 });
 
@@ -51,7 +56,7 @@ async function createChannel(name) {
       name,
     },
   }).catch((err) => {
-    data.error = err.data.message;
+    state.error = err.data.message;
   });
 
   router.push({ name: "id", params: { id: channel.value.id } });
