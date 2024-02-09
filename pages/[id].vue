@@ -6,8 +6,12 @@
       </div>
       <div class="users-wrapper">
         <div class="user-container">
-          <Avatar image="https://robohash.org/0" shape="circle" />
-          <InputText v-if="data.editing" placeholder="DenisMaurice14" v-model="pseudo" />
+          <Avatar :image="`https://robohash.org/${author_name}`" shape="circle" />
+          <InputText
+            v-if="data.editing"
+            placeholder="DenisMaurice14"
+            v-model="pseudo"
+          />
           <span v-else>{{ pseudo }} (Me)</span>
           <Button
             :icon="data.editing ? 'pi pi-check' : 'pi pi-pencil'"
@@ -32,6 +36,10 @@
     </div>
     <div class="main-wrapper">
       <div class="header">
+        <Button
+          icon="pi pi-arrow-left"
+          @click="$router.push('/')"
+        />
         <h1 v-text="channel.name" />
       </div>
       <div class="content-wrapper">

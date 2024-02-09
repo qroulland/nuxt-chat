@@ -1,0 +1,23 @@
+.user-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  .p-avatar {
+    background-color: var(--primary-100);
+  }
+
+  input {
+    min-width: 0;
+  }
+
+  button {
+    margin-left: auto;
+    height: 28px;
+    width: 28px;
+
+    span {
+      font-size: 12px;
+    }
+  }
+}

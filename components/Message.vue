@@ -1,17 +1,30 @@
 <template>
   <Card class="card-message">
-    <template #title>{{ author_name }}</template>
+    <template #title>
+      <div class="user-container">
+        <Avatar :image="`https://robohash.org/${author_name}`" shape="circle" />
+        {{ author_name }}
+      </div>
+    </template>
     <template #content>
       <p v-text="content" />
     </template>
     <template #footer>
-      {{ created_at }}
+      {{ formated_date }}
     </template>
   </Card>
 </template>
 
 <script setup>
-defineProps({
+const formated_date = computed(() => {
+  const date = new Date(props.created_at);
+
+  return `${date.getHours()}h${date.getMinutes()} - ${date.toLocaleDateString(
+    "fr"
+  )}`;
+});
+
+const props = defineProps({
   content: {
     type: String,
     required: true,

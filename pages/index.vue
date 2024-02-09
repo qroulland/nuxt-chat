@@ -1,16 +1,6 @@
 <template>
   <div class="container">
-    <h1>Nuxt Chat</h1>
-    <h3>About you</h3>
-    <div class="input-group">
-      <InputText
-        type="text"
-        id="pseudo"
-        placeholder="DenisMaurice14"
-        v-model="pseudo"
-      />
-    </div>
-    <Divider />
+    <h1>Welcome {{ pseudo }} 👋🏻</h1>
     <h3>Create a channel</h3>
     <div class="input-group">
       <InputText
